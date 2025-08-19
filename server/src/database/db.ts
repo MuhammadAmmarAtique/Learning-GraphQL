@@ -7,6 +7,6 @@
       .then((c) => {
         console.log(`Connected with ${c.connection.name}`);
       })
-      .catch((e) => console.log(e));
+      .catch((e) => console.log(`Err: during db connection through Mongoose ${e}`));
   
   
