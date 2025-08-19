@@ -1,12 +1,6 @@
-
-import { helloWord,newPost } from "@/controllers/graphql.js";
-
 export const graphQLResolver = {
-    Query: {
-        hello: helloWord,
-    },
-    Mutation: {
-        addPost:newPost,
-    },
+  Query: {
+    hello: () => "Hello world 1",
+    hello2: () => "Hello world 2",
+  },
 };
-
