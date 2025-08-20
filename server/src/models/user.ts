@@ -1,18 +1,15 @@
-
 import mongoose from "mongoose";
 
-
 interface IUser {
+  _id: mongoose.Types.ObjectId;
   name: string;
   email: string;
-  password: string;
-  createdAt: Date;
+  password?: string;
 }
 
-type IUserModel = mongoose.Model<IUser> & {};
+type IUserModel = mongoose.Model<IUser>;
 
-
-const schema = new mongoose.Schema({
+const schema = new mongoose.Schema<IUser>({
   name: {
     type: String,
     required: [true, "Please enter name"],
@@ -24,12 +21,8 @@ const schema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "Please enter password"],
+    required: false,
     select: false,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
   },
 });
 
