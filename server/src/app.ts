@@ -21,6 +21,11 @@ startStandaloneServer(server, {
   listen: {
     port,
   },
-});
-
+})
+  .then(() => {
+    console.log(`GraphQl Server running on port ${port}`);
+  })
+  .catch((e) => {
+    console.log(`Err druing running GraphQl Server:: ${e}`);
+  });
 connectDB(MongodbURI);
