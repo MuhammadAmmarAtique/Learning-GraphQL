@@ -1,4 +1,5 @@
-import { getAllUsers, getUserbyId } from "@/controllers/user";
+import { getAllUsers, getUserbyId } from "@/controllers/user.controller";
+import { getAllCourses } from "@/controllers/course.controller";
 
 export const graphQLResolver = {
   Query: {
@@ -6,5 +7,6 @@ export const graphQLResolver = {
     hello2: () => "Hello world 2",
     users: getAllUsers,
     user: getUserbyId,
+    courses: getAllCourses,
   },
 };

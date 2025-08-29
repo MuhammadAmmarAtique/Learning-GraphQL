@@ -1,4 +1,4 @@
-import { User } from "@/models/user";
+import { User } from "@/models/user.model";
 
 // GraphQL Resolver Shape
 // (parent, args, context, info) => result
