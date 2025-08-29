@@ -1,5 +1,8 @@
 import { getAllUsers, getUserbyId } from "@/controllers/user.controller";
-import { getAllCourses } from "@/controllers/course.controller";
+import {
+  getAllCourses,
+  getCourseOfUser,
+} from "@/controllers/course.controller";
 
 export const graphQLResolver = {
   Query: {
@@ -15,5 +18,10 @@ export const graphQLResolver = {
       // Parent is a course object.
       return await getUserbyId(parent.instructor);
     },
+  },
+
+  // This is a nested resolver for the User type
+  User: {
+    courses: getCourseOfUser,
   },
 };

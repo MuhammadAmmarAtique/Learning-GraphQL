@@ -5,6 +5,7 @@ export const graphQLSchema = `#graphql
   name:String!,
   email:String!,
   password:String,
+  courses:[Course] 
       }
 
   type Course {
@@ -21,5 +22,4 @@ export const graphQLSchema = `#graphql
     users:[User],
     user(id: ID!):User,
     courses:[Course]
-
   }`;
