@@ -1,10 +1,17 @@
-import { getAllUsers, getUserbyId } from "@/controllers/user.controller";
+import {
+  getAllUsers,
+  getUserbyId,
+  createUser,
+} from "@/controllers/user.controller";
 import {
   getAllCourses,
   getCourseOfUser,
 } from "@/controllers/course.controller";
 
 export const graphQLResolver = {
+  Mutation: {
+    addUser: createUser,
+  },
   Query: {
     hello: () => "Hello world 1",
     hello2: () => "Hello world 2",

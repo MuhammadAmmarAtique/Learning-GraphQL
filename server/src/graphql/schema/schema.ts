@@ -9,7 +9,7 @@ export const graphQLSchema = `#graphql
       }
 
   type Course {
- _id: ID!,
+  _id: ID!,
   title: String!,
   description: String!,
   instructor: User!,
@@ -17,9 +17,14 @@ export const graphQLSchema = `#graphql
       }
 
   type Query {
-    hello: String,
-    hello2: String,
-    users:[User],
-    user(id: ID!):User,
-    courses:[Course]
-  }`;
+  hello: String,
+  hello2: String,
+  users:[User],
+  user(id: ID!):User,
+  courses:[Course]
+  }
+
+   type Mutation {
+   addUser( name:String!,email:String!,password:String):User
+  }
+  `;
