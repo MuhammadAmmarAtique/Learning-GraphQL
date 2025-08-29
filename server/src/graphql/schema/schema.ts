@@ -9,6 +9,8 @@ export const graphQLSchema = `#graphql
 
   type Query {
     hello: String,
-    hello2: String
-    users:[User]
+    hello2: String,
+    users:[User],
+    user(id: ID!):User
+
   }`;
