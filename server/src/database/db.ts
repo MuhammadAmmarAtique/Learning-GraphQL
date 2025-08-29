@@ -3,7 +3,7 @@
   
   export const connectDB = (uri: string) =>
     mongoose
-      .connect(uri, { dbName: "MyMongodbCompass" })
+      .connect(uri, { dbName: "LearningGraphQL" })
       .then((c) => {
         console.log(`Connected with ${c.connection.name}`);
       })
