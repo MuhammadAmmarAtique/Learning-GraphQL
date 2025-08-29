@@ -1,5 +1,8 @@
 import { User } from "@/models/user";
 
+// GraphQL Resolver Shape
+// (parent, args, context, info) => result
+
 export const getAllUsers = async () => {
   const users = await User.find();
   return users;
