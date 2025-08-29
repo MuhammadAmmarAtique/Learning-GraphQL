@@ -12,7 +12,7 @@ export const graphQLResolver = {
   // This is a nested resolver for the Course type
   Course: {
     instructor: async (parent: { instructor: string }) => {
-      // Parent is a course instructor
+      // Parent is a course object.
       return await getUserbyId(parent.instructor);
     },
   },
