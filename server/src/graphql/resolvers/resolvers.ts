@@ -9,4 +9,11 @@ export const graphQLResolver = {
     user: getUserbyId,
     courses: getAllCourses,
   },
+  // This is a nested resolver for the Course type
+  Course: {
+    instructor: async (parent: { instructor: string }) => {
+      // Parent is a course instructor
+      return await getUserbyId(parent.instructor);
+    },
+  },
 };

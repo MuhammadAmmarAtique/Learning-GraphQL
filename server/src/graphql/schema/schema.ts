@@ -11,7 +11,7 @@ export const graphQLSchema = `#graphql
  _id: ID!,
   title: String!,
   description: String!,
-  instructor: String!,
+  instructor: User!,
   price: String
       }
 
