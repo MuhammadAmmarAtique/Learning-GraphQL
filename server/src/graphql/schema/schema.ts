@@ -5,14 +5,14 @@ export const graphQLSchema = `#graphql
   name:String!,
   email:String!,
   password:String,
-  courses:[Course] 
+  courses:[Course] # one-to-many relationship
       }
 
   type Course {
   _id: ID!,
   title: String!,
   description: String!,
-  instructor: User!,
+  instructor: User!, # many-to-one relationship
   price: String
       }
 
