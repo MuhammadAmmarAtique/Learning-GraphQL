@@ -1,25 +1,39 @@
 import "./App.css";
-import { useLazyQuery } from "@apollo/client/react";
-import { getUsers } from "./graphql/queries/query";
+import { useMutation } from "@apollo/client/react";
+import { ADD_USER } from "./graphql/mutations/mutation";
 
-type User = { name: string };
-type GetUsersResponse = { users: User[] };
+type User = { _id: string; name: string; email: string };
+type AddUserResponse = { addUser: User };
 
 function App() {
-  const [getUsersTrigger, { called, loading, data }] =
-    useLazyQuery<GetUsersResponse>(getUsers);
+  const [addUser, { data, loading, error }] =
+    useMutation<AddUserResponse>(ADD_USER);
 
-  if (called && loading) return <p>Loading ...</p>;
+  const handleAddUser = async () => {
+    try {
+      await addUser({
+        variables: {
+          name: "John Does",
+          email: "john@examplse.com",
+        },
+      });
+    } catch (err) {
+      console.error("Error adding user:", err);
+    }
+  };
 
-  if (!called) {
-    return <button onClick={() => getUsersTrigger()}>Load Users</button>;
-  }
+  if (loading) return <p>Adding user...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div>
-      {data?.users?.map((user, idx) => (
-        <h1 key={idx}>Hello {user.name}!</h1>
-      ))}
+      <button onClick={handleAddUser}>Add User</button>
+
+      {data?.addUser && (
+        <h1>
+          User Added: {data.addUser.name} ({data.addUser.email})
+        </h1>
+      )}
     </div>
   );
 }
